@@ -4,7 +4,7 @@ JSON2EZエクステンション
 
 1. エクステンションをダウンロード
 2. extension/　にフォルダー一式を起きます
-3. autoloads を再生性 
+3. autoloads を再生成
    php bin/php/ezpgenerateautoloads.php -e -p -v
 4. エクステンションを有効にする
    site.iniの[ExtensionSettings]ブロックのActiveExtensions配列に「json2ez」を追加します
