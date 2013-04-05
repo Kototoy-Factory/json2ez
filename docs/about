@@ -1,0 +1,32 @@
+JSON2EZエクステンション
+
+インストール
+
+1. エクステンションをダウンロード
+2. extension/　にフォルダー一式を起きます
+3. autoloads を再生性 
+   php bin/php/ezpgenerateautoloads.php -e -p -v
+4. エクステンションを有効にする
+   site.iniの[ExtensionSettings]ブロックのActiveExtensions配列に「json2ez」を追加します
+---
+[ExtensionSettings]
+ActiveExtensions[]=json2ez
+---
+
+使い方
+
+json2ezは「get_external_json」というテンプレートオペーレーターを提供します。
+特定なURLからjson、jsonpやxmlのデータを読み込み、テンプレートで利用できる配列に変換します。
+
+get_external_json( $url, $type )
+ $urlは外部のデータファイルへのURL
+ $typeは外部データファイルの形式 ['jsonp'|'json'|'xml']
+
+使用例
+---
+{def $json = get_external_json( $url, 'jsonp' )}
+
+{foreach $json as $key => $value}
+{$key} : {$value|attribute(show,1)}
+{/foreach}
+---
