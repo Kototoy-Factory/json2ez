@@ -17,7 +17,6 @@ class json2ez{
             $result = $this->parse_xml( $data );
             break;
         }   
-        var_dump($result);
         $this->result = $result;
     }   
 
